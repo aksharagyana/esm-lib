@@ -16,6 +16,10 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+    # npm install
+    # npm run build
+    printenv
+    echo "repo name: $(Build.Repository.Name)"
+    echo "source baranch name: $(Build.SourceBranchName)"
+
+  displayName: 'print default vars'
