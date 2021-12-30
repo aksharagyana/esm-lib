@@ -21,7 +21,11 @@ steps:
     printenv
     echo "repo name: $(Build.Repository.Name)"
     echo "source baranch name: $(Build.SourceBranchName)"
-    sourcebranch=$(git log --merges origin/$(Build.SourceBranchName) --oneline --grep='^Merge pull request' -1)
-    echo "${sourcebranch}"
-    echo "merged from: ${sourcebranch##* }"
+    git_log=$(git log --merges origin/$(Build.SourceBranchName) --oneline --grep='^Merge pull request' -1)
+    echo "${git_log}"
+    echo "merged from: ${git_log##* }"
+    p_sb="${git_log##* }"
+    oneaccount_prefix="oneaccount/"
+    source_branch=${branchname//$oneaccount_prefix/}
+    echo "source_branch: ${source_branch}"
   displayName: 'print default vars'
