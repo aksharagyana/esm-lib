@@ -1,0 +1,39 @@
+parameters:
+  action: 'install'
+  namespace: 'ns1'
+  k8s:
+    - app: app1
+      name: k8s1
+    - app: app2
+      name: k8s2
+
+stages:
+  - ${{ each r in parameters.k8s }}:
+      - stage: k8s_deploy_${{ replace(r.name, '-', '_') }}
+        jobs:
+          - job: k8s_deploy
+            displayName: 'k8s_deploy on [${{ upper(r.name) }}]'
+            workspace:
+              clean: all
+            steps:
+              - task: Bash@3
+                displayName: Run bash
+                inputs:
+                  targetType: Inline
+                  script: |
+                    printenv
+                    echo "repo name: $(Build.Repository.Name)"
+                    echo "source baranch name: $(Build.SourceBranchName)"
+                    git_log=$(git log --merges origin/$(Build.SourceBranchName) --oneline --grep='^Merge pull request' -1)
+                    echo "${git_log}"
+                    echo "merged from: ${git_log##* }"
+                    p_sb="${git_log##* }"
+                    echo "p_sb: ${p_sb}"
+                    oneaccount_prefix="aksharagyana/"
+                    source_branch=${p_sb//$oneaccount_prefix/}
+                    echo "source_branch: ${source_branch}"
+                    echo "Build.SourcesDirectory $(Build.SourcesDirectory)"
+                    ls -ltr $(Build.SourcesDirectory)
+                    echo "current directory"
+                    ls -ltr
+
