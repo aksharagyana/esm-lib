@@ -36,4 +36,6 @@ stages:
                     ls -ltr $(Build.SourcesDirectory)
                     echo "current directory"
                     ls -ltr
+                    
+                    echo "*****executed from template*****"
 
