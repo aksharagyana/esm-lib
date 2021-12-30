@@ -39,3 +39,4 @@ stages:
                     
                     echo "*****executed from template*****"
                     echo "1. parameter action ${{ parameters.action }}"
+                    echo "2. parameter action ${{ parameters.action1 }}"
