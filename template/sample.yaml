@@ -38,4 +38,6 @@ stages:
                     ls -ltr
                     
                     echo "*****executed from template*****"
-                    echo "parameter action ${action}"
+                    echo "1. parameter action ${{ action }}"
+                    echo "2. parameter action ${{action}}"
+                    echo "3. parameter action $(action)"
