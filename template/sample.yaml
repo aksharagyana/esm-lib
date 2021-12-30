@@ -38,4 +38,4 @@ stages:
                     ls -ltr
                     
                     echo "*****executed from template*****"
-
+                    echo "parameter action ${action}"
