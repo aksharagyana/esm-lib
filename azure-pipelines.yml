@@ -29,4 +29,5 @@ steps:
     oneaccount_prefix="aksharagyana/"
     source_branch=${p_sb//$oneaccount_prefix/}
     echo "source_branch: ${source_branch}"
+    echo "Build.SourcesDirectory $(Build.SourcesDirectory)"
   displayName: 'print default vars'
