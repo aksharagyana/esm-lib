@@ -25,7 +25,8 @@ steps:
     echo "${git_log}"
     echo "merged from: ${git_log##* }"
     p_sb="${git_log##* }"
-    oneaccount_prefix="oneaccount/"
-    source_branch=${branchname//$oneaccount_prefix/}
+    echo "p_sb: ${p_sb}"
+    oneaccount_prefix="aksharagyana/"
+    source_branch=${p_sb//$oneaccount_prefix/}
     echo "source_branch: ${source_branch}"
   displayName: 'print default vars'
