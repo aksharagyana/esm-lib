@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: Azure Pipelines Action
         run: |
+          curl --version
           getPayLoad() {
           cat <<EOF
           {
