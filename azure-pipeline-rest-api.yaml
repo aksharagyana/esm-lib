@@ -26,4 +26,4 @@ stages:
       namespace: 'register'
       branch: " ${{ parameters.ref }} "
       ref: " ${{ parameters.ref }} "
-      type: " ${{ parameters.ref_type }} "
+      type: " ${{ parameters.type }} "
