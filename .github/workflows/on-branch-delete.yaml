@@ -14,3 +14,4 @@ jobs:
           azure-devops-project-url: https://dev.azure.com/aksharagyana/node-pipeline
           azure-pipeline-name: 'aksharagyana.esm-lib'
           azure-devops-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
+          azure-pipeline-variables:  '{"repo": "${{ env. GITHUB_REPOSITORY }}", "branch": "${GITHUB_REF}"}'
