@@ -1,0 +1,23 @@
+trigger:
+  - none
+
+pr: none
+
+pool: default
+
+parameters:
+  - name: action
+    displayName: takes merge or none.
+    type: string
+  - name: repo
+    displayName: Git repository.
+    type: string
+  - name: ref
+    displayName: branch name.
+    type: string
+  - name: type
+    displayName: takes branch or tag.
+    type: string
+
+steps:
+  - template: template/sample.yaml'
