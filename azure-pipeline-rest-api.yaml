@@ -21,3 +21,9 @@ parameters:
 
 stages:
   - template: template/sample.yaml
+    parameters:
+      action: 'merge'
+      namespace: 'register'
+      branch: " ${{ parameters.ref }} "
+      ref: " ${{ parameters.ref }} "
+      type: " ${{ parameters.ref_type }} "

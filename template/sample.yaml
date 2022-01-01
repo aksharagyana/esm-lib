@@ -41,4 +41,4 @@ stages:
                     echo "1. parameter action ${{ parameters.action }}"
                     echo "2. parameter action ${{ parameters.action1 }}"
                     echo "3. parameter action ${{ parameters.action }} repo ${{ parameters.repository }} ref ${{ parameters.ref }} type ${{ parameters.ref_type }}"
-                    echo "4. parameter action $(repo1) $(branch1)"
+
