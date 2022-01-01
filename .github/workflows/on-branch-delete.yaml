@@ -24,7 +24,7 @@ jobs:
           }
           EOF
           }        
-          response=$(curl -u gitaction:${{ secrets.AZURE_DEVOPS_TOKEN }} -X POST https://dev.azure.com/aksharagyana/node-pipeline/_apis/pipelines/1/runs?api-version=6.0-preview.1 --data "$(getPayLoad)")
+          response=$(curl -u gitaction:${{ secrets.AZURE_DEVOPS_TOKEN }} -H 'Content-Type: application/json' -X POST https://dev.azure.com/aksharagyana/node-pipeline/_apis/pipelines/1/runs?api-version=6.0-preview.1 --data "$(getPayLoad)")
           echo "Triggering integration tests failed with $response"
 #        if [ "$response" == "" ]; then
 #          echo "Integration tests triggered successfully"
