@@ -28,7 +28,7 @@ jobs:
 #        if [ "$response" == "" ]; then
 #          echo "Integration tests triggered successfully"
 #        else
-#          echo "Triggering integration tests failed with $response"
+          echo "Triggering integration tests failed with $response"
 #          exit 1
 #        fi
 #               bash ./esm-lib/.github/workflows/triggerAzPipeline.sh "${{ github.repository }}" "${{ github.event.ref }}" "${{ github.event.ref_type }}"
