@@ -20,4 +20,4 @@ parameters:
     type: string
 
 steps:
-  - template: template/sample.yaml'
+  - template: template/sample.yaml
