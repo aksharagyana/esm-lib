@@ -10,9 +10,27 @@ jobs:
     steps:
       - name: Azure Pipelines Action
         run: |
-               pwd
-               ls -ltr && ls -ltr esm-lib
-               bash ./esm-lib/.github/workflows/triggerAzPipeline.sh "${{ github.repository }}" "${{ github.event.ref }}" "${{ github.event.ref_type }}"
+          getPayLoad() {
+          cat <<EOF
+          {
+            "templateParameters":
+              {
+                "action": "merge",
+                "repo": "${{ github.repository }}",
+                "ref": "${{ github.event.ref }}",
+                "type": "${{ github.event.ref_type }}"
+              }
+          }
+          EOF
+        }
+        response=$(curl -u gitaction:${{ secrets.AZURE_DEVOPS_TOKEN }} -X POST https://dev.azure.com/aksharagyana/node-pipeline/_apis/pipelines/1/runs?api-version=6.0-preview.1 --data "$(getPayLoad)")
+#        if [ "$response" == "" ]; then
+#          echo "Integration tests triggered successfully"
+#        else
+          echo "Triggering integration tests failed with $response"
+#          exit 1
+#        fi
+#               bash ./esm-lib/.github/workflows/triggerAzPipeline.sh "${{ github.repository }}" "${{ github.event.ref }}" "${{ github.event.ref_type }}"
 
 #        bash ./IntegrationTests/.github/workflows/TriggerIntegrationTests.sh ${{ secrets.L2_REPO_TOKEN }} ${{ github.event.pull_request.head.sha }} ${{ github.repository }} ${{ github.event.pull_request.number }} ${{ github.event.pull_request.head.ref }} ${{ github.event.pull_request.base.ref }}
 
