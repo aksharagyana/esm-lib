@@ -4,14 +4,18 @@ name: on-branch-delete
 on: [delete]
 
 jobs:
-  build:
+  trigger-azure-pipelines:
     name: Call Azure Pipeline
     runs-on: ubuntu-latest
     steps:
       - name: Azure Pipelines Action
-        uses: Azure/pipelines@v1
-        with:
-          azure-devops-project-url: https://dev.azure.com/aksharagyana/node-pipeline
-          azure-pipeline-name: 'aksharagyana.esm-lib'
-          azure-devops-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
-          azure-pipeline-variables:  '{"repo": "${{ env.GITHUB_REPOSITORY }}", "branch": "${{ env.GITHUB_REF_NAME }}"}'
+        run: |
+        echo  "${{ github.repository }} repo- ${GITHUB_REPOSITORY}, branch- ${GITHUB_REF_NAME}"
+#        bash ./IntegrationTests/.github/workflows/TriggerIntegrationTests.sh ${{ secrets.L2_REPO_TOKEN }} ${{ github.event.pull_request.head.sha }} ${{ github.repository }} ${{ github.event.pull_request.number }} ${{ github.event.pull_request.head.ref }} ${{ github.event.pull_request.base.ref }}
+
+#        uses: Azure/pipelines@v1
+#        with:
+#          azure-devops-project-url: https://dev.azure.com/aksharagyana/node-pipeline
+#          azure-pipeline-name: 'aksharagyana.esm-lib'
+#          azure-devops-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
+#          azure-pipeline-variables:  '{"repo": "${GITHUB_REPOSITORY}", "branch": "${GITHUB_REF_NAME}"}'
