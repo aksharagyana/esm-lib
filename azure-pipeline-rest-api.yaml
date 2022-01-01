@@ -19,5 +19,5 @@ parameters:
     displayName: takes branch or tag.
     type: string
 
-steps:
+stages:
   - template: template/sample.yaml
