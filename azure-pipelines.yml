@@ -11,7 +11,7 @@ pool: default
 
 variables:
   repo1: "from var1"
-  branch1: "itssecond""
+  branch1: "itssecond"
 
 
 stages:
