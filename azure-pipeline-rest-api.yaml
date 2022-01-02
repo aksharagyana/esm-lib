@@ -20,6 +20,6 @@ stages:
   - template: template/sample.yaml
     parameters:
       action: 'merge'
-      repo: ' ${{ parameters.repo }} '
-      branch: " ${{ parameters.ref }} "
-      type: " ${{ parameters.type }} "
+#      repo: ' ${{ parameters.repo }} '
+#      branch: " ${{ parameters.ref }} "
+#      type: " ${{ parameters.type }} "
