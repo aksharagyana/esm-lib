@@ -41,4 +41,7 @@ stages:
                     echo "1. parameter action ${{ parameters.action }}"
                     echo "2. parameter action ${{ parameters.action1 }}"
                     echo "3. parameter action ${{ parameters.action }} repo ${{ parameters.repo }} ref ${{ parameters.branch }} type ${{ parameters.type }}"
+                    if ["${{ parameters.type,, }}" == "branch"]; then
+                      echo "4. in if loop after chnaging to lower case"
+                    fi
 
