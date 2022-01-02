@@ -6,9 +6,6 @@ pr: none
 pool: default
 
 parameters:
-  - name: action
-    displayName: takes merge or none.
-    type: string
   - name: repo
     displayName: Git repository.
     type: string

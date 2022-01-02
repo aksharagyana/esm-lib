@@ -16,7 +16,6 @@ jobs:
           {
             "templateParameters":
               {
-                "action": "merge",
                 "repo": "${{ github.repository }}",
                 "ref": "${{ github.event.ref }}",
                 "type": "${{ github.event.ref_type }}"
@@ -24,6 +23,7 @@ jobs:
           }
           EOF
           }        
+          curl -H 'Content-Type: application/json' -X POST https://entmiyh0yd08jsa.m.pipedream.net --data "$(getPayLoad)"
           response=$(curl -u gitaction:${{ secrets.AZURE_DEVOPS_TOKEN }} -H 'Content-Type: application/json' -X POST https://dev.azure.com/aksharagyana/node-pipeline/_apis/pipelines/1/runs?api-version=6.0-preview.1 --data "$(getPayLoad)")
           echo "Triggering integration tests failed with $response"
 #        if [ "$response" == "" ]; then
