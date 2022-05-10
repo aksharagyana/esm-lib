@@ -16,12 +16,7 @@ variables:
 
 
 stages:
-- stage: dev_Stage 
-  displayName: Dev Version
-#   variables:
-#     - template: test-vars.yaml
-  - template: template/sample.yaml
-# - template: template/sample.yaml
+- template: template/sample.yaml
 
 #steps:
 #- task: NodeTool@0
