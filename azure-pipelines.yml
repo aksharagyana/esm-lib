@@ -12,7 +12,7 @@ pool: ubuntu-docker
 variables:
   repo1: "from var1"
   branch1: "itssecond"
-  picture: "my pic"
+- template: dev-vars.yaml
 
 
 stages:
