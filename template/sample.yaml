@@ -13,7 +13,7 @@ stages:
   - ${{ each r in parameters.k8s }}:
       - stage: k8s_deploy_${{ replace(r.name, '-', '_') }}
         variables:
-        - template: $(Build.SourcesDirectory)/${{ lower(r.env) }}-vars.yaml
+        - template: ../${{ lower(r.env) }}-vars.yaml
         jobs:
           - job: k8s_deploy
             displayName: 'k8s_deploy on [${{ upper(r.name) }}]'
