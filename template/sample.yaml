@@ -16,12 +16,19 @@ stages:
             workspace:
               clean: all
             steps:
+              - task: FileTransform@1
+                displayName: 'File transformation: appsettings.json'
+                inputs:
+                  folderPath: '${{ parameters.sourceDirectory }}'
+                  targetFiles: 'data.json'
+                  fileType: json
               - task: Bash@3
                 displayName: Run bash
                 inputs:
                   targetType: Inline
                   script: |
                     printenv
+                    cat data.json
                     echo "repo name: $(Build.Repository.Name)"
                     echo "source baranch name: $(Build.SourceBranchName)"
                     git_log=$(git log --merges origin/$(Build.SourceBranchName) --oneline --grep='^Merge pull request' -1)
