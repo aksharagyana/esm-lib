@@ -4,12 +4,16 @@ parameters:
   k8s:
     - app: app1
       name: k8s1
+      env: dev
     - app: app2
       name: k8s2
+      env: test
 
 stages:
   - ${{ each r in parameters.k8s }}:
       - stage: k8s_deploy_${{ replace(r.name, '-', '_') }}
+        variables:
+        - template: ${{ lower(r.env) }}-vars.yaml
         jobs:
           - job: k8s_deploy
             displayName: 'k8s_deploy on [${{ upper(r.name) }}]'
