@@ -1,6 +1,7 @@
 parameters:
   action: 'install'
   namespace: 'ns1'
+  repoName: "dev-fun-test"
   k8s:
     - app: app1
       name: k8s1
@@ -10,6 +11,16 @@ parameters:
       env: test
 
 stages:
+  - stage: ${{ parameters.stageName }}
+    jobs:
+      - job: test_stage_nmat_transfer
+        steps:
+          - task: Bash@3
+            displayName: Run bash
+            inputs:
+              targetType: Inline
+              script: |
+                printenv
   - ${{ each r in parameters.k8s }}:
       - stage: k8s_deploy_${{ replace(r.name, '-', '_') }}
         variables:
