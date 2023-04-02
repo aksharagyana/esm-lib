@@ -11,9 +11,9 @@ parameters:
       env: test
 
 stages:
-  - stage: ${{ parameters.stageName }}
+  - stage: ${{ parameters.repoName }}
     jobs:
-      - job: test_stage_nmat_transfer
+      - job: test_stage_name_transfer
         steps:
           - task: Bash@3
             displayName: Run bash
