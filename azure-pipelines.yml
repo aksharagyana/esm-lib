@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool: ubuntu-docker
+pool: Azure Pipelines
 #
 
 variables:
