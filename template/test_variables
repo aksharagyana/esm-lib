@@ -9,4 +9,15 @@ parameters:
 variables:
 - group: sample
 
-
+stages:
+    
+  - stage: ${{ replace(parameters.repoName, '-', '_') }}
+    jobs:
+      - job: test_stage_name_transfer
+        steps:
+          - task: Bash@3
+            displayName: Run bash
+            inputs:
+              targetType: Inline
+              script: |
+                printenv
