@@ -21,3 +21,8 @@ stages:
               targetType: Inline
               script: |
                 printenv
+                    echo "raw somedev: $(somedev)"
+                    echo "raw sometest: $(sometest)"
+
+                    echo " somedev: $(some${{ parameters.dev }})"
+                    echo " sometest: $(some{{ parameters.test }})"
