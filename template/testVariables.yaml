@@ -11,7 +11,7 @@ variables:
 
 stages:
     
-  - stage: ${{ replace(parameters.repoName, '-', '_') }}
+  - stage: testVars
     jobs:
       - job: test_stage_name_transfer
         steps:
