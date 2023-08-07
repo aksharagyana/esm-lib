@@ -1,10 +1,10 @@
 parameters:
-    - name: dev
-      type: string
-      default: dev
-    - name: test
-      type: string
-      default: test
+- name: dev
+  type: string
+  default: dev
+- name: test
+  type: string
+  default: test
 
 variables:
 - group: sample
