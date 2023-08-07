@@ -25,4 +25,4 @@ stages:
                     echo "raw sometest: $(sometest)"
 
                     echo " somedev: $(some${{ parameters.dev }})"
-                    echo " sometest: $(some{{ parameters.test }})"
+                    echo " sometest: $(some${{ parameters.test }})"
