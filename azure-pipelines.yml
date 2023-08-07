@@ -16,8 +16,8 @@ variables:
 
 
 stages:
-- template: template/sample.yaml
-
+# - template: template/sample.yaml
+- template: template/testVariables.yaml
 #steps:
 #- task: NodeTool@0
 #  inputs:
