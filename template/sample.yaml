@@ -2,6 +2,8 @@ parameters:
   action: 'install'
   namespace: 'ns1'
   repoName: "dev-fun-test"
+  dev: dev
+  test: test
   k8s:
     - app: app1
       name: k8s1
@@ -9,8 +11,11 @@ parameters:
     - app: app2
       name: k8s2
       env: test
+Variables:
+- group: sample
 
 stages:
+    
   - stage: ${{ replace(parameters.repoName, '-', '_') }}
     jobs:
       - job: test_stage_name_transfer
@@ -65,6 +70,12 @@ stages:
                     echo "3. parameter action ${{ parameters.action }} repo ${{ parameters.repo }} ref ${{ parameters.branch }} type ${{ parameters.type }}"
                     type=$(echo "${{ parameters.type }}" | tr [:upper:] [:lower:])
                     echo "4. type ${type}"
+
+                    echo "raw somedev: $(somedev)"
+                    echo "raw sometest: $(sometest)"
+
+                    echo " somedev: $(some${{ parameters.dev }})"
+                    echo " sometest: $(some{{ parameters.test }})"
                     
                     
                   
