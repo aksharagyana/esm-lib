@@ -15,9 +15,12 @@ variables:
 - template: dev-vars.yaml
 
 
-stages:
+extends:
+    template: template/testVariables.yaml
+
+# stages:
 # - template: template/sample.yaml
-- template: template/testVariables.yaml
+
 #steps:
 #- task: NodeTool@0
 #  inputs:
